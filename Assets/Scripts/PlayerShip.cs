@@ -14,7 +14,7 @@ public class PlayerShip : MonoBehaviour {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 5f;
 
-    private Transform projectileParent;
+    private GameObject projectileParent;
     private bool shootCoroutineRunning;
 
     private float xMin, xMax;
@@ -27,7 +27,7 @@ public class PlayerShip : MonoBehaviour {
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
 
-        var projectileParent = GameObject.Find("ProjectileParent");
+        projectileParent = GameObject.Find("ProjectileParent");
         if (!projectileParent) {
             projectileParent = new GameObject("ProjectileParent");
         }
@@ -45,13 +45,12 @@ public class PlayerShip : MonoBehaviour {
         }
     }
 
- 
     private IEnumerator ShootContinuously() {
         shootCoroutineRunning = true;
         do {
-            var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent);
+            var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent.transform);
             projectile.GetComponent<Rigidbody2D>().velocity = Vector2.up * projectileSpeed;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(fireRate);
         } while (CrossPlatformInputManager.GetButton("Fire1"));
         shootCoroutineRunning = false;
     }
