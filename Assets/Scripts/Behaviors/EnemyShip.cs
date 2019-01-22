@@ -12,10 +12,6 @@ public class EnemyShip : MonoBehaviour {
         healthOwner = GetComponent<HealthOwner>();
     }
 
-    void Update() {
-
-    }
-
     public void OnTriggerEnter2D(Collider2D collision) {
         var damangeDealer = collision.gameObject.GetComponent<DamangeDealer>();
         if (damangeDealer) {

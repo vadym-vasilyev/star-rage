@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 6283182858006599473}
   - component: {fileID: 6283182858006599474}
   - component: {fileID: 2038774320}
+  - component: {fileID: 6909294700127864760}
   - component: {fileID: 6283182858006599476}
   - component: {fileID: 6283182858006599472}
   m_Layer: 10
-  m_Name: EnemySmall
+  m_Name: Enemy Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fabd76f0d92bd41821eed2829dfc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6909294700127864760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283182858006599477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a94bd4219c047145aad564dd179de2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
 --- !u!212 &6283182858006599476
 SpriteRenderer:
   m_ObjectHideFlags: 0

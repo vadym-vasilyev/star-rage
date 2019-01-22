@@ -10,15 +10,15 @@ public class PlayerShip : MonoBehaviour {
     [SerializeField] float padding = 1f;
     [Range(0, 40)] [SerializeField] float rollMaxAngel = 20f;
 
-    private float xMin, xMax;
-    private float yMin, yMax;
+    private Rect bounds;
 
     void Start() {
         Camera gameCamera = Camera.main;
-        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+        bounds = Rect.MinMaxRect(
+            gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding,
+            gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding,
+            gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding,
+            gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding);
     }
 
     void Update() {
@@ -32,8 +32,8 @@ public class PlayerShip : MonoBehaviour {
         float deltaX = inputX * Time.deltaTime * shipSpeed;
         float deltaY = inputY * Time.deltaTime * shipSpeed;
 
-        float newPosX = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        float newPosY = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+        float newPosX = Mathf.Clamp(transform.position.x + deltaX, bounds.xMin, bounds.xMax);
+        float newPosY = Mathf.Clamp(transform.position.y + deltaY, bounds.yMin, bounds.yMax);
 
         transform.position = new Vector3(newPosX, newPosY);
 

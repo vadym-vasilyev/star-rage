@@ -5,4 +5,7 @@ using UnityEngine;
 public static class PredefinedStrings
 {
     public const string PROJECTILE_PARENT_OBJECT = "Projectile Parent";
+
+    public const string ENEMY_PARENT_OBJECT = "Enemy Parent";
+
 }
