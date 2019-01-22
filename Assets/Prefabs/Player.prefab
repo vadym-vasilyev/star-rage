@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5742578672836827742}
   - component: {fileID: 5742578672836827729}
+  - component: {fileID: 1862108542}
   - component: {fileID: 5742578672836827728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,8 +47,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipSpeed: 5
-  padding: 0.5
+  padding: 0.75
   rollMaxAngel: 20
+--- !u!114 &1862108542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742578672836827743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dcc095af35b7444b807d8586b2fd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.2
+  projectilePrefab: {fileID: 6874501121586133245, guid: 5f5fb6bbfb4eaa745a0bc751a6451b2a,
+    type: 3}
+  projectileSpeed: 10
 --- !u!60 &5742578672836827728
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -58,7 +75,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -73,24 +90,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.43810603, y: 0.067631684}
-      - {x: 0.3587987, y: -0.027632616}
-      - {x: 0.124771506, y: 0.11574361}
-      - {x: 0.07463318, y: 0.37616268}
-      - {x: -0.08224598, y: 0.37593392}
-      - {x: -0.115671985, y: 0.12385446}
-      - {x: -0.36287665, y: -0.019241035}
-      - {x: -0.44686356, y: 0.06204123}
-      - {x: -0.49431604, y: 0.058461927}
-      - {x: -0.46838683, y: -0.24471234}
-      - {x: -0.41275656, y: -0.23167294}
-      - {x: -0.13248733, y: -0.2844483}
-      - {x: -0.06749065, y: -0.37338918}
-      - {x: 0.080840826, y: -0.37241924}
-      - {x: 0.13191885, y: -0.28220823}
-      - {x: 0.40391168, y: -0.21975684}
-      - {x: 0.4652654, y: -0.24639621}
-      - {x: 0.4984221, y: 0.05947099}
+    - - {x: 0.2959635, y: 0.041978203}
+      - {x: 0.24639817, y: -0.01587855}
+      - {x: 0.08415489, y: 0.06782246}
+      - {x: 0.049245656, y: 0.24420476}
+      - {x: -0.059819393, y: 0.24058643}
+      - {x: -0.08033731, y: 0.082878485}
+      - {x: -0.24639869, y: -0.011347666}
+      - {x: -0.2987984, y: 0.038361065}
+      - {x: -0.3324315, y: 0.038728468}
+      - {x: -0.31637317, y: -0.16577849}
+      - {x: -0.27061397, y: -0.14287236}
+      - {x: -0.0972773, y: -0.17640176}
+      - {x: -0.05056244, y: -0.2498982}
+      - {x: 0.048321486, y: -0.254603}
+      - {x: 0.09835741, y: -0.18748762}
+      - {x: 0.27024618, y: -0.138906}
+      - {x: 0.30732912, y: -0.159569}
+      - {x: 0.3266664, y: 0.03973753}
 --- !u!1 &5742578673711956520
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5742578673711956523}
   - component: {fileID: 5742578673711956525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,8 +173,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -971183129
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ade8fce5a29de004583c6de9bb92d072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

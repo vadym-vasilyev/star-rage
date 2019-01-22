@@ -9,13 +9,6 @@ public class PlayerShip : MonoBehaviour {
     [SerializeField] float shipSpeed = 1f;
     [SerializeField] float padding = 1f;
     [Range(0, 40)] [SerializeField] float rollMaxAngel = 20f;
-    [SerializeField] float fireRate = 1f;
-
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] float projectileSpeed = 5f;
-
-    private GameObject projectileParent;
-    private bool shootCoroutineRunning;
 
     private float xMin, xMax;
     private float yMin, yMax;
@@ -26,33 +19,10 @@ public class PlayerShip : MonoBehaviour {
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-
-        projectileParent = GameObject.Find("ProjectileParent");
-        if (!projectileParent) {
-            projectileParent = new GameObject("ProjectileParent");
-        }
     }
 
     void Update() {
         MoveShip();
-        Shoot();
-    }
-
-    //TODO: Move all shoot stuff to separate component "Shooter"?
-    private void Shoot() {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1") && !shootCoroutineRunning) {
-            StartCoroutine(ShootContinuously());
-        }
-    }
-
-    private IEnumerator ShootContinuously() {
-        shootCoroutineRunning = true;
-        do {
-            var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent.transform);
-            projectile.GetComponent<Rigidbody2D>().velocity = Vector2.up * projectileSpeed;
-            yield return new WaitForSeconds(fireRate);
-        } while (CrossPlatformInputManager.GetButton("Fire1"));
-        shootCoroutineRunning = false;
     }
 
     private void MoveShip() {
