@@ -36,6 +36,7 @@ public class EnemiesSpawner : MonoBehaviour {
         }
     }
 
+    //TODO: think about enemies pool instead instantiation each time
     private IEnumerator StartSpawningEnemiesInWave(WaveConfig waveConfig) {
         for (int i = 0; i < waveConfig.numberOfEnemies; i++) {
             var enemy = Instantiate(waveConfig.enemyPrefab, enemiesParent.transform);

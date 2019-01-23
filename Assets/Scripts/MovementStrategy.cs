@@ -62,8 +62,6 @@ namespace MovementStrategy {
         }
     }
 
-
-
     class MovementByWaypointsStrategy : IMovementStrategy {
         private Transform[] waypoints;
         private int waypointIndex = 1;

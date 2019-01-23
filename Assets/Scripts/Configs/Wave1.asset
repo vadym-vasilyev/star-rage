@@ -16,7 +16,7 @@ MonoBehaviour:
   timeBetweenSpawns: 1
   timeToNextWave: 4
   numberOfEnemies: 10
-  moveSpeed: 2
+  moveSpeed: 3
   movementStrategyData:
     movementStrategy: 1
     path: {fileID: 0}

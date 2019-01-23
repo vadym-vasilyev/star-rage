@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PredefinedStrings
-{
+public static class PredefinedStrings {
     public const string PARENT_OBJECT_PROJECTILE = "Projectile Parent";
     public const string PARENT_OBJECT_ENEMY = "Enemy Parent";
 

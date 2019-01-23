@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MusicPlayer : MonoBehaviour
-{
+public class MusicPlayer : MonoBehaviour {
     [SerializeField] AudioClip menuMusic = null;
     [SerializeField] AudioClip gameMusic = null;
     [SerializeField] AudioClip winMusic = null;
@@ -29,6 +28,10 @@ public class MusicPlayer : MonoBehaviour
         musicMap.Add(PredefinedStrings.SCENE_LOOSE, looseMusic);
         musicPlayer = GetComponent<AudioSource>();
         SceneManager.activeSceneChanged += ChangedActiveScene;
+    }
+
+    void Start() {
+        Debug.Log("start!!");
     }
 
     void ChangedActiveScene(Scene current, Scene next) {

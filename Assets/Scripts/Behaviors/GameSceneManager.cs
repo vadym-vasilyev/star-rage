@@ -17,6 +17,14 @@ public class GameSceneManager : MonoBehaviour {
         SceneManager.LoadScene(PredefinedStrings.SCENE_MENU);
     }
 
+    public void LosseScreen() {
+        SceneManager.LoadScene(PredefinedStrings.SCENE_LOOSE);
+    }
+
+    public void WinScreen() {
+        SceneManager.LoadScene(PredefinedStrings.SCENE_WIN);
+    }
+
     public void QuitGame() {
         Application.Quit();
     }

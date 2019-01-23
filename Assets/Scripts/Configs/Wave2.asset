@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2038774320, guid: c5bfbce517b18df498d08d59c1e7f4cb, type: 3}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 3
   timeToNextWave: 0.3
   numberOfEnemies: 20
-  moveSpeed: 2
+  moveSpeed: 5
   movementStrategyData:
     movementStrategy: 0
     path: {fileID: 5891492687203884908, guid: 1034490b6a5554840b5a8e1fd5cbd622, type: 3}

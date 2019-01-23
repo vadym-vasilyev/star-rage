@@ -10,9 +10,15 @@ public class PlayerShip : MonoBehaviour {
     [SerializeField] float padding = 1f;
     [Range(0, 40)] [SerializeField] float rollMaxAngel = 20f;
 
+    private PlayerStatController playerStatController;
+    private GameSceneManager sceneManager;
+
     private Rect bounds;
 
     void Start() {
+        sceneManager = FindObjectOfType<GameSceneManager>();
+        playerStatController = GetComponent<PlayerStatController>();
+        playerStatController.OnShieldValueChange += OnSheildValueChangeCheckForDeath;
         Camera gameCamera = Camera.main;
         bounds = Rect.MinMaxRect(
             gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding,
@@ -40,4 +46,26 @@ public class PlayerShip : MonoBehaviour {
         float roll = rollMaxAngel * inputX;
         transform.rotation = Quaternion.Euler(0, roll, 0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        DamangeDealer damangeDealer = collision.gameObject.GetComponent<DamangeDealer>();
+        if (damangeDealer) {
+            playerStatController.DecreaseShield(damangeDealer.DamangeAmount);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnSheildValueChangeCheckForDeath(int shield) {
+        if (shield <= 0) {
+            Destroy(gameObject);
+            StartCoroutine(LooseSceneTransition());
+        }
+    }
+
+    private IEnumerator LooseSceneTransition() {
+        yield return new WaitForSeconds(5f);
+        sceneManager.LosseScreen();
+    }
+
+
 }
