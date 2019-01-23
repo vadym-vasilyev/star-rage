@@ -4,8 +4,13 @@ using UnityEngine;
 
 public static class PredefinedStrings
 {
-    public const string PROJECTILE_PARENT_OBJECT = "Projectile Parent";
+    public const string PARENT_OBJECT_PROJECTILE = "Projectile Parent";
+    public const string PARENT_OBJECT_ENEMY = "Enemy Parent";
 
-    public const string ENEMY_PARENT_OBJECT = "Enemy Parent";
+    public const string SCENE_MENU = "Menu";
+    public const string SCENE_SETTINGS = "Settings";
+    public const string SCENE_GAME = "GameScene";
+    public const string SCENE_WIN = "Win";
+    public const string SCENE_LOOSE = "Loose";
 
 }

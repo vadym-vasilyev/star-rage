@@ -16,6 +16,7 @@ public class EnemyShip : MonoBehaviour {
         var damangeDealer = collision.gameObject.GetComponent<DamangeDealer>();
         if (damangeDealer) {
             healthOwner.DecreaseHealth(damangeDealer.DamangeAmount);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -22,9 +22,9 @@ public class EnemiesSpawner : MonoBehaviour {
 
         movementStrategyFactory = new MovementStrategyFactory(xSpawnMin, xSpawnMax, ySpawnPos);
 
-        enemiesParent = GameObject.Find(PredefinedStrings.ENEMY_PARENT_OBJECT);
+        enemiesParent = GameObject.Find(PredefinedStrings.PARENT_OBJECT_ENEMY);
         if (!enemiesParent) {
-            enemiesParent = new GameObject(PredefinedStrings.ENEMY_PARENT_OBJECT);
+            enemiesParent = new GameObject(PredefinedStrings.PARENT_OBJECT_ENEMY);
         }
         StartCoroutine(SpawnAllWaves());
     }

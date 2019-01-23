@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2038774320, guid: c5bfbce517b18df498d08d59c1e7f4cb, type: 3}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 2
   timeToNextWave: 0.3
-  numberOfEnemies: 1
+  numberOfEnemies: 10
   moveSpeed: 2
   movementStrategyData:
     movementStrategy: 2

@@ -5,28 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour {
 
-    void Awake() {
-        if (FindObjectOfType<GameSceneManager>()) {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        } else {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
     public void StartGame() {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(PredefinedStrings.SCENE_GAME);
     }
 
     public void Settings() {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene(PredefinedStrings.SCENE_SETTINGS);
     }
 
     public void MainMenu() {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(PredefinedStrings.SCENE_MENU);
     }
 
     public void QuitGame() {
         Application.Quit();
     }
+
 }
