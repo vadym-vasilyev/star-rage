@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour {
@@ -12,15 +13,6 @@ public class MusicPlayer : MonoBehaviour {
     private Dictionary<string, AudioClip> musicMap = new Dictionary<string, AudioClip>();
     private AudioSource musicPlayer;
 
-    void Awake() {
-        if (FindObjectsOfType<MusicPlayer>().Length > 1) {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        } else {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-
     void OnEnable() {
         musicMap.Add(PredefinedStrings.SCENE_MENU, menuMusic);
         musicMap.Add(PredefinedStrings.SCENE_GAME, gameMusic);
@@ -30,12 +22,7 @@ public class MusicPlayer : MonoBehaviour {
         SceneManager.activeSceneChanged += ChangedActiveScene;
     }
 
-    void Start() {
-        Debug.Log("start!!");
-    }
-
     void ChangedActiveScene(Scene current, Scene next) {
-        Debug.Log("Current scene: " + next.name);
         if (musicMap.ContainsKey(next.name)) {
             AudioClip nextAudioClip = musicMap[next.name];
             musicPlayer.Stop();

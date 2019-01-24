@@ -12,4 +12,6 @@ public static class PredefinedStrings {
     public const string SCENE_WIN = "Win";
     public const string SCENE_LOOSE = "Loose";
 
+    public const string EXPOSED_MUSIC_VOLUME = "musicVolume";
+    public const string EXPOSED_SFX_VOLUME = "sfxVolume";
 }
