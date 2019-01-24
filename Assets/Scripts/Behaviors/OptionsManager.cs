@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour {
 
-
     [SerializeField] Slider musicVolume;
     [SerializeField] Slider sfxVolume;
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,16 +18,21 @@ public class GameSceneManager : MonoBehaviour {
         SceneManager.LoadScene(PredefinedStrings.SCENE_MENU);
     }
 
-    public void LosseScreen() {
-        SceneManager.LoadScene(PredefinedStrings.SCENE_LOOSE);
+    public void LooseScreenDelayed() {
+        StartCoroutine(WaitAndDo(3f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_LOOSE); }));
     }
 
-    public void WinScreen() {
-        SceneManager.LoadScene(PredefinedStrings.SCENE_WIN);
+    public void WinScreenDelayed() {
+        StartCoroutine(WaitAndDo(3f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_WIN); }));
     }
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    IEnumerator WaitAndDo(float time, Action action) {
+        yield return new WaitForSeconds(time);
+        action();
     }
 
 }
