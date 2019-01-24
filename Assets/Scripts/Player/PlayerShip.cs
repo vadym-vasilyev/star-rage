@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerShip : MonoBehaviour {
-
+    private const string ANIMATION_SHIELD_ACTIVE = "Shield Activated";
     [SerializeField] float shipSpeed = 1f;
     [SerializeField] float padding = 1f;
     [Range(0, 40)] [SerializeField] float rollMaxAngel = 20f;
 
     private PlayerStatController playerStatController;
     private GameSceneManager sceneManager;
+    private Animator animator;
 
     private Rect bounds;
 
@@ -19,6 +20,7 @@ public class PlayerShip : MonoBehaviour {
         sceneManager = FindObjectOfType<GameSceneManager>();
         playerStatController = GetComponent<PlayerStatController>();
         playerStatController.OnShieldValueChange += OnSheildValueChangeCheckForDeath;
+        animator = GetComponent<Animator>();
         Camera gameCamera = Camera.main;
         bounds = Rect.MinMaxRect(
             gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding,
@@ -58,7 +60,9 @@ public class PlayerShip : MonoBehaviour {
     private void OnSheildValueChangeCheckForDeath(int shield) {
         if (shield <= 0) {
             sceneManager.LooseScreenDelayed();
-            Destroy(gameObject);     
+            Destroy(gameObject);
+        } else {
+            animator.SetTrigger(ANIMATION_SHIELD_ACTIVE);
         }
     }
 }
