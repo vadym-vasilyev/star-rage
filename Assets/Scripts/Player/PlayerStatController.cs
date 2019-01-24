@@ -27,6 +27,14 @@ public class PlayerStatController : MonoBehaviour {
     public int GetShield => playerState.shield;
     public int GetScore => playerState.score;
 
+    private void Start() {
+        SceneManager.activeSceneChanged += SaveScore;
+    }
+
+    private void SaveScore(Scene current, Scene next) {
+        PlayerPrefs.SetInt(PredefinedStrings.PREF_SCORE, playerState.score);
+    }
+
     public void DecreaseShield(int amount) {
         playerState.shield -= amount;
         if (playerState.shield < 0) {
@@ -56,5 +64,4 @@ public class PlayerStatController : MonoBehaviour {
         }
         OnScoreValueChange(playerState.score);
     }
-
 }

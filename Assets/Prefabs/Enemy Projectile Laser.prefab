@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bede654a625f048bba0cf867b3bdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damangeAmount: 10
+  damangeAmount: 5
 --- !u!212 &8491092519576401949
 SpriteRenderer:
   m_ObjectHideFlags: 0

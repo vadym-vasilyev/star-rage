@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour {
 
-    [SerializeField] AudioMixer masterMixer;
+    [SerializeField] AudioMixer masterMixer = null;
 
     void Awake() {
         if (FindObjectsOfType<MusicPlayer>().Length > 1) {

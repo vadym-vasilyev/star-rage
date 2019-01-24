@@ -7,10 +7,10 @@ public class EnemyDirectShoot : AbstractRandomTimeEnemyShoot {
 
     protected override void DoShoot() {
         if (playerShip) {
-            var projectle = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent.transform);
-            projectle.transform.LookAt(playerShip.transform);
-            Debug.Log("Toward vector " + transform.forward + " (magnitude " + transform.forward.magnitude + ") normalized");
-            projectle.GetComponent<Rigidbody2D>().AddForce(transform.forward.normalized * projectileSpeed);
+            var dir = playerShip.transform.position - transform.position;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+            var projectle = Instantiate(projectilePrefab, transform.position, Quaternion.AngleAxis(angle, Vector3.forward), projectileParent.transform);
+            projectle.GetComponent<Rigidbody2D>().velocity = projectle.transform.up * projectileSpeed;
             audioSource.PlayOneShot(shootSound);
         }
     }

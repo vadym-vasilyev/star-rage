@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour {
@@ -17,4 +18,5 @@ public class ScoreView : MonoBehaviour {
     void OnScoreValueChange(int score) {
         scoreText.text = score.ToString();
     }
+
 }

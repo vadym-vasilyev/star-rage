@@ -19,11 +19,11 @@ public class GameSceneManager : MonoBehaviour {
     }
 
     public void LooseScreenDelayed() {
-        StartCoroutine(WaitAndDo(3f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_LOOSE); }));
+        StartCoroutine(WaitAndDo(4f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_LOOSE); }));
     }
 
     public void WinScreenDelayed() {
-        StartCoroutine(WaitAndDo(3f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_WIN); }));
+        StartCoroutine(WaitAndDo(4f, () => { SceneManager.LoadScene(PredefinedStrings.SCENE_WIN); }));
     }
 
     public void QuitGame() {

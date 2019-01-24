@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6283182858006599472}
   - component: {fileID: 9112951842449522660}
   m_Layer: 10
-  m_Name: Enemy Small
+  m_Name: Enemy Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3951715ec52bdc4ab9b1ff20d818e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8491092519576401947, guid: 6dd60e5e0c4d1ca48863cb9cd664fc1f,
+  projectilePrefab: {fileID: 1702401487279738441, guid: 5ba09d79c259d3a4eb8c677090390fcd,
     type: 3}
   shootSound: {fileID: 8300000, guid: 386342e50ae0dc943a1f844163309452, type: 3}
   projectileSpeed: 6
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0e62467da4aa24db19d957155a46cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 30
 --- !u!114 &2038774320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 8300000, guid: a6da213da4e28ea448b0100dad6ac0f9, type: 3}
   deathFX: {fileID: 3982416537162522370, guid: c73a58ec34fe5264c82242d9aca99155, type: 3}
-  scoreForKilling: 30
+  hitFX: {fileID: 6999717325411942825, guid: 06ad4456ef3aa7b449020fdf71023886, type: 3}
+  scoreForKilling: 50
   audioPlayer: {fileID: 4665506706575317191, guid: 6d102b9b7202901419c48604f5e7f3c3,
     type: 3}
 --- !u!114 &6909294700127864760
@@ -134,8 +135,8 @@ SpriteRenderer:
   m_SortingLayerID: -971183129
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ca2f1cb22206b54e943e15d179f0df8, type: 3}
-  m_Color: {r: 0.6839622, g: 1, b: 0.7135908, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d2340c92d4501814ea854f3cd2de1903, type: 3}
+  m_Color: {r: 0.6575858, g: 1, b: 0.6367924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,7 +160,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0032609403, y: 0.014277935}
-  m_Size: {x: 0.5250773, y: 0.53134394}
+  m_Size: {x: 0.76446766, y: 0.76446766}
   m_Direction: 0
 --- !u!82 &9112951842449522660
 AudioSource:
