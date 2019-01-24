@@ -14,4 +14,6 @@ public static class PredefinedStrings {
 
     public const string EXPOSED_MUSIC_VOLUME = "musicVolume";
     public const string EXPOSED_SFX_VOLUME = "sfxVolume";
+
+    public const string PREF_SCORE = "scorePref";
 }

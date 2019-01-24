@@ -41,7 +41,7 @@ public class EnemiesSpawner : MonoBehaviour {
         for (int i = 0; i < waveConfig.numberOfEnemies; i++) {
             var enemy = Instantiate(waveConfig.enemyPrefab, enemiesParent.transform);
             EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-            enemyMovement.ApplyMovementStrategy(movementStrategyFactory.createMovementStrategy(waveConfig.movementStrategyData));
+            enemyMovement.ApplyMovementStrategy(movementStrategyFactory.createMovementStrategy(waveConfig.movementStrategyData), waveConfig.moveSpeed);
             yield return new WaitForSeconds(waveConfig.timeBetweenSpawns);
         }
     }

@@ -52,9 +52,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8491092519576401947, guid: 6dd60e5e0c4d1ca48863cb9cd664fc1f,
     type: 3}
   shootSound: {fileID: 8300000, guid: 386342e50ae0dc943a1f844163309452, type: 3}
+  projectileSpeed: 6
   minTimeBeforShoots: 0.4
   maxTimeBeforShoots: 3
-  projectileSpeed: 6
 --- !u!114 &6283182858006599474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,8 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0e62467da4aa24db19d957155a46cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: a6da213da4e28ea448b0100dad6ac0f9, type: 3}
-  deathFX: {fileID: 3982416537162522370, guid: c73a58ec34fe5264c82242d9aca99155, type: 3}
   health: 1
 --- !u!114 &2038774320
 MonoBehaviour:
@@ -82,6 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fabd76f0d92bd41821eed2829dfc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: a6da213da4e28ea448b0100dad6ac0f9, type: 3}
+  deathFX: {fileID: 3982416537162522370, guid: c73a58ec34fe5264c82242d9aca99155, type: 3}
+  scoreForKilling: 30
+  audioPlayer: {fileID: 781842946952160238, guid: 2de1119ee2c22184691ee4ff2bcccab2,
+    type: 3}
 --- !u!114 &6909294700127864760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a94bd4219c047145aad564dd179de2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
 --- !u!212 &6283182858006599476
 SpriteRenderer:
   m_ObjectHideFlags: 0

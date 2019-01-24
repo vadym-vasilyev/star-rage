@@ -15,6 +15,5 @@ public class BossEnemyShip : EnemyShip {
 
     private void LaunchWinScene() {
         gameSceneManager.WinScreenDelayed();
-        Destroy(gameObject);
     }
 }
