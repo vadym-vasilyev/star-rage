@@ -12,6 +12,7 @@ public class MusicPlayer : MonoBehaviour {
 
     private Dictionary<string, AudioClip> musicMap = new Dictionary<string, AudioClip>();
     private AudioSource musicPlayer;
+    private AudioClip activeClip;
 
     void OnEnable() {
         musicMap.Add(PredefinedStrings.SCENE_MENU, menuMusic);
@@ -25,6 +26,10 @@ public class MusicPlayer : MonoBehaviour {
     void ChangedActiveScene(Scene current, Scene next) {
         if (musicMap.ContainsKey(next.name)) {
             AudioClip nextAudioClip = musicMap[next.name];
+            if (activeClip == nextAudioClip) {
+                return;
+            }
+            activeClip = nextAudioClip;
             musicPlayer.Stop();
             musicPlayer.clip = nextAudioClip;
             musicPlayer.Play();
