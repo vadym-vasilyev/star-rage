@@ -5,9 +5,12 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerShip : MonoBehaviour {
-    private const string ANIMATION_SHIELD_ACTIVE = "Shield Activated";
+
+    [SerializeField] AudioClip deathSound = null;
     [SerializeField] float shipSpeed = 1f;
     [SerializeField] float padding = 1f;
+    [SerializeField] ParticleSystem deathFX = null;
+    [SerializeField] GameObject audioPlayer = null;
     [Range(0, 40)] [SerializeField] float rollMaxAngel = 20f;
 
     private PlayerStatController playerStatController;
@@ -60,9 +63,17 @@ public class PlayerShip : MonoBehaviour {
     private void OnSheildValueChangeCheckForDeath(int shield) {
         if (shield <= 0) {
             sceneManager.LooseScreenDelayed();
+            Instantiate(deathFX, transform.position, Quaternion.identity);
+
+            var audioPlayerInstance = Instantiate(audioPlayer);
+            AudioSource audioSource = audioPlayerInstance.GetComponent<AudioSource>();
+            audioSource.clip = deathSound;
+            audioSource.Play();
+            Destroy(audioPlayerInstance, deathSound.length);
+
             Destroy(gameObject);
         } else {
-            animator.SetTrigger(ANIMATION_SHIELD_ACTIVE);
+            animator.SetTrigger(PredefinedStrings.ANIMATION_SHIELD_ACTIVE);
         }
     }
 }
